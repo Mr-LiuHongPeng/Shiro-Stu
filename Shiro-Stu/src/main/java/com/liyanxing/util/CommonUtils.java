@@ -15,6 +15,7 @@ public class CommonUtils extends StringUtils {
     private static final String NULLSTR = "";
 
 
+
     /**
      * 判断一个对象是否为空
      * true :为空
