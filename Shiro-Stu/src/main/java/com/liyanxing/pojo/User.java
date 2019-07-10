@@ -1,66 +1,54 @@
 package com.liyanxing.pojo;
 
-public class User
-{
+public class User {
     private Integer id;
     private String name;
     private String password;
     private String per;
     private String salt;
 
-    public Integer getId()
-    {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Integer id)
-    {
+    public void setId(Integer id) {
         this.id = id;
     }
 
-    public String getName()
-    {
+    public String getName() {
         return name;
     }
 
-    public void setName(String name)
-    {
+    public void setName(String name) {
         this.name = name;
     }
 
-    public String getPassword()
-    {
+    public String getPassword() {
         return password;
     }
 
-    public void setPassword(String password)
-    {
+    public void setPassword(String password) {
         this.password = password;
     }
 
-    public String getPer()
-    {
+    public String getPer() {
         return per;
     }
 
-    public void setPer(String per)
-    {
+    public void setPer(String per) {
         this.per = per;
     }
 
-    public String getSalt()
-    {
+    public String getSalt() {
         return salt;
     }
 
-    public void setSalt(String salt)
-    {
+    public void setSalt(String salt) {
         this.salt = salt;
     }
 
     @Override
-    public String toString()
-    {
+    public String toString() {
         return "User{" + "id=" + id + ", name='" + name + '\'' + ", password='" + password + '\'' + ", per='" + per + '\'' + '}';
     }
 }
