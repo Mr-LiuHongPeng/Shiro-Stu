@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:shiro="http://www.w3.org/1999/xhtml" xmlns:th="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta charset="UTF-8">
+        <title>首页</title>
+    </head>
+
+    <body>
+        <div>这是首页</div> <br/><br/>
+
+        <div shiro:notAuthenticated > <!-- 用户未登录时显示的内容，不需要给这个属性赋值 -->
+            <a href="/toPage/login">登录</a>
+            <a href="/toPage/registe">注册</a>
+        </div> <br/><br/>
+
+        <div shiro:authenticated > <!-- 用户登录时显示的内容，不需要给这个属性赋值 -->
+            <span>欢迎您：<span th:text="${user_name}"></span></span>
+        </div> <br/><br/>
+
+        <div>
+            <ul>
+                <li><a href="/resouces/a">这是资源A，只有登录后才能访问</a></li>
+                <li><a href="/resouces/b">这是资源B，拥有"get:b"权限才能访问</a></li>
+            </ul>
+        </div>
+    </body>
+</html>
