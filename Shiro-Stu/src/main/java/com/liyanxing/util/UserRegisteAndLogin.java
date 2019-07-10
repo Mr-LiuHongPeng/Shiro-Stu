@@ -19,6 +19,7 @@ import java.util.Date;
  * 用户注册与登录时用到的函数
  */
 public class UserRegisteAndLogin {
+
     /**
      * 用户注册时加密用户的密码
      * 输入密码明文 返回密文与盐值
