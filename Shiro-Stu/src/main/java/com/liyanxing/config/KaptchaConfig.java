@@ -44,8 +44,6 @@ public class KaptchaConfig {
 
         defaultKaptcha.setConfig(config);
 
-        
-
         return defaultKaptcha;
     }
 }
