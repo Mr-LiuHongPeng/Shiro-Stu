@@ -4,6 +4,7 @@ package com.liyanxing.config;/**
  */
 
 import com.google.code.kaptcha.impl.DefaultKaptcha;
+import com.google.code.kaptcha.util.Config;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import sun.misc.ObjectInputFilter;
@@ -39,8 +40,10 @@ public class KaptchaConfig {
         properties.setProperty("kaptcha.textproducer.font.names", "宋体,楷体,微软雅黑");
 
         /*4、属性设置结束以后、创建config对象*/
+        Config config = new Config(properties);
 
+        defaultKaptcha.setConfig(config);
 
-        return null;
+        return defaultKaptcha;
     }
 }
