@@ -11,26 +11,34 @@ import org.apache.shiro.subject.PrincipalCollection;
 import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 
-public class UserRealm extends AuthorizingRealm
-{
+public class UserRealm extends AuthorizingRealm {
+
     @Autowired
     private UserService userService;
 
     /**
      * 执行认证逻辑
+     *
      * @param authenticationToken
      * @return
      * @throws AuthenticationException
      */
     @Override
-    protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken authenticationToken) throws AuthenticationException
-    {
+    protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken authenticationToken) throws AuthenticationException {
+
+        //获取到对应的token
         UsernamePasswordToken token = (UsernamePasswordToken) authenticationToken; //获得用户输入的用户名,这个对象就是login()传递过来的，将它强转以取出封装的用户名
-        String userNameInput = token.getUsername();
+        //从包装的token信息中取出登录的用户名
+        String userName = token.getUsername();
+        //获取密码
+        String password = null;
+        if (token.getPassword() != null) {
+            password = new String(token.getPassword());
+        }
 
-        User selectUser = userService.selectOneUserByName(userNameInput);
+        User selectUser = userService.selectOneUserByName(userName);
 
-        if(selectUser == null) //用户不存在，返回null
+        if (selectUser == null)
         {
             return null;
         }
@@ -40,19 +48,18 @@ public class UserRealm extends AuthorizingRealm
 
     /**
      * 执行授权逻辑
+     *
      * @param principalCollection
      * @return
      */
     @Override
-    protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principalCollection)
-    {
+    protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principalCollection) {
         Subject subject = SecurityUtils.getSubject(); //获得一个Subject对象
         User user = (User) subject.getPrincipal(); //获得登录的对象
 
         String str = user.getPer(); //获得登录对象的权限字符串
 
-        if(str==null || str.isEmpty())
-        {
+        if (str == null || str.isEmpty()) {
             str = "noAnyAuth";
         }
 
