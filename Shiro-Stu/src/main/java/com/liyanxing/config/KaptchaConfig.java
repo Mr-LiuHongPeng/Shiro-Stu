@@ -25,6 +25,7 @@ public class KaptchaConfig {
 
         /*2、创建properties对象*/
         Properties properties = new Properties();
+        
 
         /*3、给properties对象设置属性值*/
         properties.setProperty("kaptcha.border", "yes");
