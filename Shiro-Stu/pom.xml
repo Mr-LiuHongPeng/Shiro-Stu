@@ -23,7 +23,7 @@
         <java.version>1.8</java.version>
         <mybatis-version>1.1.1</mybatis-version>
         <druid-version>1.1.12</druid-version>
-        <shiro-version>1.4.0</shiro-version>
+        <shiro-version>1.7.0</shiro-version>
         <thymeleaf-version>2.0.0</thymeleaf-version>
         <kaptcha-version>2.3.2</kaptcha-version>
     </properties>
